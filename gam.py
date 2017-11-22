@@ -44,10 +44,10 @@ def fit(X, y, maxiter=100, eps=1e-4, l=1):
                 i += 1
 
         y_ = sigmoid(a.dot(B.T))
-        return a, gcv_score(B, W, D, y, y_, l)
+        return a, gcv_score(B, D, y, y_, l)
 
 
-def gcv_score(B, W, D, y, y_, l):
+def gcv_score(B, D, y, y_, l):
 
         r = B.shape[0] * np.linalg.norm(y - y_)
         B = svd_whiten(B)
