@@ -42,7 +42,7 @@ def B_spline(x, n=10, k=3):
         return B
 
 
-def div0(a):
+def safe_reciprocal(a):
         """ ignore / 0, div0( [-1, 0, 1], 0 ) -> [0, 0, 0] """
         with np.errstate(divide='ignore', invalid='ignore'):
                 c = np.true_divide(1, a)
